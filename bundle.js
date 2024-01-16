@@ -11,6 +11,12 @@
 	
 	// Counter for correct answers
 	var correctCount = 0;
+
+	// Flags
+	var cat1Complete = false;
+	var cat2Complete = false;
+	var cat3Complete = false;
+	var cat4Complete = false;
 	
 	color1.addEventListener("input", setGradient);
 	color2.addEventListener("input", setGradient);
@@ -21,56 +27,69 @@
 	cat4.addEventListener("click", catEyeColor);
 	
 	function setGradient() {
-		if (correctCount > 2) {
-	  body.style.background =
-		"linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
+		if (correctCount > 3) {
+			body.style.background = "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
 		}
 	}
 	
 	function catColor() {
-	  let cat = prompt("Does this cat have stripes?");
-	  if (cat === null) {
-		return;
-	  } else if (cat.toLowerCase() === "yes") {
-		alert("Correct!");
-		correctCount++;
-		console.log("Correct Count: " + correctCount);
-	  } else {
-		alert("Wrong color. Try again.");
-	  }
+		if (cat1Complete) {
+			alert("This question has already been answered. Choose a different photo.");
+			return;
+		}
+	  	let cat = prompt("Does this cat have stripes?");
+	  	if (cat.toLowerCase() === "yes") {
+			alert("Correct!");
+			correctCount++;
+			cat1Complete = true;
+	  	} else {
+			alert("Wrong color. Try again.");
+	  	}
 	}
 	
 	function bcatColor() {
-	  let cat2 = prompt("What color is this cat?");
-	  if (cat2.toLowerCase() === "black") {
-		alert("Correct!");
-		correctCount++;
-		console.log("Correct Count: " + correctCount);
-	  } else {
-		alert("Wrong color. Try again.");
-	  }
+		if (cat2Complete) {
+			alert("This question has already been answered. Choose a different photo.");
+			return;
+		}
+	  	let cat2 = prompt("What color is this cat?");
+	  	if (cat2.toLowerCase() === "black") {
+			alert("Correct!");
+			correctCount++;
+			cat2Complete = true;
+	  	} else {
+			alert("Wrong color. Try again.");
+	  	}
 	}
 	
 	function gcatColor() {
-	  let cat3 = prompt("What color is this cat?");
-	  if (cat3.toLowerCase() === "grey") {
-		alert("Correct!");
-		correctCount++;
-		console.log("Correct Count: " + correctCount);
-	  } else {
-		alert("Wrong color. Try again");
-	  }
+		if (cat3Complete) {
+			alert("This question has already been answered. Choose a different photo.");
+			return;
+		}
+	  	let cat3 = prompt("What color is this cat?");
+	  	if (cat3.toLowerCase() === "grey") {
+			alert("Correct!");
+			correctCount++;
+			cat3Complete = true;
+	  	} else {
+			alert("Wrong color. Try again");
+	  	}
 	}
 	
 	function catEyeColor() {
-	  let cat4 = prompt("What eye color does this cat have?");
-	  if (cat4.toLowerCase() === "blue") {
-		alert("Correct!");
-		correctCount++;
-		console.log("Correct Count: " + correctCount);
-	  } else {
-		alert("Wrong color. Try again");
-	  }
+		if (cat4Complete) {
+			alert("This question has already been answered. Choose a different photo.");
+			return;
+		}
+	  	let cat4 = prompt("What eye color does this cat have?");
+	  	if (cat4.toLowerCase() === "blue") {
+			alert("Correct!");
+			correctCount++;
+			cat4Complete = true;
+	  	} else {
+			alert("Wrong color. Try again");
+	  	}
 	}
 
 
